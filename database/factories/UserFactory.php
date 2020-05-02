@@ -60,6 +60,7 @@ $factory->define(Job::class, function (Faker $faker) {
         'status' => rand(0,1),
         'type' => 'fulltime',
         'description' => $faker->paragraph(rand(2,9)),
+        'roles' => $faker->text,
         'last_date' => $faker->dateTime
     ];
 });

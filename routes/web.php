@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','JobController@index');
+Route::get('/jobs/{id}/{job}','JobController@show')->name('show.jobs');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/company/{id}/{company}','CompanyController@index')->name('company.index');

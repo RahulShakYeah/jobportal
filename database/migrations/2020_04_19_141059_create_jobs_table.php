@@ -16,10 +16,12 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('company_id');
+            $table->foreignId('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('title');
             $table->string('slug');
             $table->text('description');
+            $table->text('roles');
             $table->string('type');
             $table->integer('category_id');
             $table->string('position');

@@ -2,19 +2,28 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <h1>Recent Jobs</h1>
+        <div class="col-md-12">
+            <div class="company-profile">
+                <img src="{{asset('images/coverphoto/cover-photo.jpg')}}" style="width: 100%" alt="">
+                <div class="company-desc">
+                    <img src="{{asset('images/logo/logo.png')}}" style="border-radius: 50%;max-width: 200px" alt="">
+                    <p>{{$company->description}}</p>
+                    <h1>{{$company->company_name}}</h1>
+                    <p>Slogan - {{$company->slogan}}&nbsp;<br>Address - {{$company->address}}&nbsp;<br>Phone - {{$company->phone}}&nbsp;<br>Website - {{$company->website}}&nbsp;</p>
+                </div>
+            </div>
+
             <table class="table">
                 <thead>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 </thead>
                 <tbody>
-                @foreach($job as $jobs)
+                @foreach($company->jobs as $jobs)
                     <tr>
                         <td><img src="{{asset('images/logo/logo.png')}}" style="border-radius: 50%" width="80" alt="Company Logo"></td>
                         <td>Position : {{$jobs->position}}<br> <i class="fas fa-clock"></i> {{$jobs->type}} </td>
@@ -29,11 +38,3 @@
         </div>
     </div>
 @endsection
-<style>
-    .fa{
-        color: #4183D7;
-    }
-    .fas{
-        color: #4183D7;
-    }
-</style>
