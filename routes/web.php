@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/company/{id}/{company}','CompanyController@index')->name('company.index');
+Route::get('/user/profile','UserProfileController@index')->name('profile.index');
+Route::post('/user/profile/create','UserProfileController@store')->name('profile.store');
