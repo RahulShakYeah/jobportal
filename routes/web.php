@@ -22,3 +22,25 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company/{id}/{company}','CompanyController@index')->name('company.index');
 Route::get('/user/profile','UserProfileController@index')->name('profile.index');
 Route::post('/user/profile/create','UserProfileController@store')->name('profile.store');
+Route::post('/user/coverletter','UserProfileController@coverLetter')->name('cover.letter');
+Route::post('/user/resume','UserProfileController@resume')->name('user.resume');
+Route::post('/user/avatar','UserProfileController@avatar')->name('user.avatar');
+Route::get('/download/coverletter',function(){
+    $fileName = Auth::user()->profile->cover_letter;
+    $username = Auth::user()->name;
+    $file = public_path()."/coverletter/".$fileName;
+    $headers = array(
+        'Content-Type: application/docx',
+    );
+    return Response::download($file,"CoverLetter".$username.".docx",$headers);
+})->name('download.coverletter');
+Route::get('/download/resume',function(){
+    $fileName = Auth::user()->profile->resume;
+    $username = Auth::user()->name;
+    $file = public_path()."/resume/".$fileName;
+    $headers = array(
+        'Content-Type: application/docx',
+    );
+    return Response::download($file,"Resume".$username.".docx",$headers);
+})->name('download.resume');
+

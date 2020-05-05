@@ -39,4 +39,76 @@ class UserProfileController extends Controller
         ]);
         return redirect()->back()->with('message','Profile Successfully Updated');
     }
+
+    public function coverLetter(Request $request){
+        $this->validate($request,[
+            'cover_letter' => 'required'
+        ]);
+        $user_id = Auth()->user()->id;
+        $id = Auth()->user()->profile->id;
+        $profile = Profile::findOrFail($id);
+        if($request->hasFile('cover_letter')){
+            $file = request('cover_letter');
+            $old_path = public_path().'/coverletter/'.$profile->cover_letter;
+            if(\File::exists($old_path)){
+                \File::delete($old_path);
+            }
+            $path = public_path().'/coverletter/';
+            $fileName = 'CoverLetter_'.time().rand(0,9999).$file->getClientOriginalName();
+            $file->move($path,$fileName);
+
+            Profile::where('user_id',$user_id)->update([
+                'cover_letter' => $fileName
+            ]);
+            return redirect()->back()->with('message','Cover Letter Successfully Updated');
+        }
+    }
+
+    public function resume(Request $request){
+        $this->validate($request,[
+            'resume' => 'required'
+        ]);
+        $user_id = Auth()->user()->id;
+        $id = Auth()->user()->profile->id;
+        $profile = Profile::findOrFail($id);
+        if($request->hasFile('resume')){
+            $file = request('resume');
+            $old_path = public_path().'/resume/'.$profile->resume;
+            if(\File::exists($old_path)){
+                \File::delete($old_path);
+            }
+            $path = public_path().'/resume/';
+            $fileName = 'Resume_'.time().rand(0,9999).$file->getClientOriginalName();
+            $file->move($path,$fileName);
+
+            Profile::where('user_id',$user_id)->update([
+                'resume' => $fileName
+            ]);
+            return redirect()->back()->with('message','Resume Successfully Updated');
+        }
+    }
+
+    public function avatar(Request $request){
+        $this->validate($request,[
+            'avatar' => 'required'
+        ]);
+        $user_id = Auth()->user()->id;
+        $id = Auth()->user()->profile->id;
+        $profile = Profile::findOrFail($id);
+        if($request->hasFile('avatar')){
+            $file = request('avatar');
+            $old_path = public_path().'/avatar/'.$profile->avatar;
+            if(\File::exists($old_path)){
+                \File::delete($old_path);
+            }
+            $path = public_path().'/avatar/';
+            $fileName = 'Avatar_'.time().rand(0,9999).$file->getClientOriginalName();
+            $file->move($path,$fileName);
+
+            Profile::where('user_id',$user_id)->update([
+                'avatar' => $fileName
+            ]);
+            return redirect()->back()->with('message','Avatar Successfully Updated');
+        }
+    }
 }
