@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    protected $fillable = ['user_id','company_name','slug','website','description','slogan','address','phone','logo','cover_photo'];
     public function jobs(){
         return $this->hasMany('App\Job');
     }

@@ -25,6 +25,12 @@ Route::post('/user/profile/create','UserProfileController@store')->name('profile
 Route::post('/user/coverletter','UserProfileController@coverLetter')->name('cover.letter');
 Route::post('/user/resume','UserProfileController@resume')->name('user.resume');
 Route::post('/user/avatar','UserProfileController@avatar')->name('user.avatar');
+Route::view('/employer/register','auth.emp-register')->name('emp.register');
+Route::post('/employer/register','EmployerRegistrationController@employerRegister')->name('emp.register');
+Route::get('/company/create','CompanyController@create')->name('company.create');
+Route::post('/company/create','CompanyController@store')->name('company.store');
+Route::post('/company/logo','CompanyController@logo')->name('company.logo');
+Route::post('/company/coverphoto','CompanyController@coverphoto')->name('company.coverphoto');
 Route::get('/download/coverletter',function(){
     $fileName = Auth::user()->profile->cover_letter;
     $username = Auth::user()->name;

@@ -4,7 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img src="{{asset('avatar/'.Auth()->user()->profile->avatar)}}" width="100" style="width:100%" alt="">
+                @if(empty(Auth()->user()->profile->avatar))
+                    <img src="{{asset('images/logo/logo.png')}}" width="100" style="width:100%" alt="">
+                @else
+                    <img src="{{asset('avatar/'.Auth()->user()->profile->avatar)}}" width="100" style="width:100%"
+                         alt="">
+                @endif
                 <br><br>
                 <div class="card">
                     <div class="card-header">
@@ -93,7 +98,7 @@
                             @csrf
                             <input type="file" class="form-control" name="cover_letter" required>
                             @error('cover_letter')
-                                <p class="alert alert-danger mt-2">{{$message}}</p>
+                            <p class="alert alert-danger mt-2">{{$message}}</p>
                             @enderror
                             <button class="btn btn-success mt-2 float-right" type="submit">Update</button>
                         </form>
