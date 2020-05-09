@@ -18,6 +18,8 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
 <div id="app">
@@ -58,6 +60,13 @@
                             </li>
                         @endif
                     @else
+                        @if(auth()->user()->user_type == "employer")
+                            <li>
+                                <a href="{{route('job.create')}}">
+                                    <button class="btn btn-secondary">Post Job</button>
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -74,6 +83,9 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @if(Auth::user()->user_type == "seeker")
                                     <a class="dropdown-item" href="{{route('profile.index')}}">Profile</a>
+                                @else
+                                    <a class="dropdown-item" href="{{route('company.create')}}">Profile</a>
+                                    <a class="dropdown-item" href="{{route('jobs.myjob')}}">My Jobs</a>
                                 @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -100,6 +112,12 @@
 <!-- Scripts -->
 <script src="{{ asset('js/jquery-3.5.0.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+$( "#datepicker" ).datepicker();
+} );
+</script>
 </body>
 </html>
