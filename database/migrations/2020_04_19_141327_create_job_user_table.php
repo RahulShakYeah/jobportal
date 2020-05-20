@@ -15,8 +15,10 @@ class CreateJobUserTable extends Migration
     {
         Schema::create('job_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('job_id');
-            $table->integer('user_id');
+            $table->foreignId('job_id')->nullable();
+            $table->foreign('job_id')->references('id')->on('jobs')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreignId('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

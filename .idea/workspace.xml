@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3646061-ba0e-413b-b01c-5307dc77f7e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/jobs/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/jobs/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/jobs/myjob.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs/alljob.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs/applicant.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_140909_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_140909_create_companies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_141059_create_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_141059_create_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/company/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/company/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_141327_create_job_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_141327_create_job_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -172,6 +174,21 @@
       <workItem from="1589007457491" duration="1903000" />
       <workItem from="1589012099762" duration="1808000" />
       <workItem from="1589014539588" duration="1800000" />
+      <workItem from="1589016405832" duration="43000" />
+      <workItem from="1589785313222" duration="1819000" />
+      <workItem from="1589787816209" duration="1578000" />
+      <workItem from="1589789629600" duration="949000" />
+      <workItem from="1589893852224" duration="1779000" />
+      <workItem from="1589895657166" duration="2039000" />
+      <workItem from="1589963706755" duration="1786000" />
+      <workItem from="1589970265852" duration="1985000" />
+      <workItem from="1589972306179" duration="1938000" />
+      <workItem from="1589974290899" duration="2256000" />
+      <workItem from="1589976990667" duration="1588000" />
+      <workItem from="1589978951119" duration="1819000" />
+      <workItem from="1589980805748" duration="2261000" />
+      <workItem from="1589983096272" duration="1208000" />
+      <workItem from="1589985862459" duration="842000" />
     </task>
     <servers />
   </component>
@@ -183,15 +200,15 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1588756707612" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1589002432310">
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1589786220478">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589002432310" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589786220478" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1588828550677" />
-    <state x="464" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589014541206">
+    <state x="464" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589985862216">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="464" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589014541206" />
+    <state x="464" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589985862216" />
     <state x="464" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588828551832" />
     <state x="393" y="117" width="749" height="600" key="find.popup" timestamp="1588681429661">
       <screen x="0" y="0" width="1536" height="834" />
