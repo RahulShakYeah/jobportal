@@ -21,7 +21,7 @@ Route::post('/jobs/{id}/edit','JobController@update')->name('job.update');
 Route::get('/jobs/applicant/','JobController@applicant')->name('job.applicant');
 Route::post('/applications/{id}','JobController@apply')->name('job.apply');
 Route::get('/jobs/myjobs','JobController@myJob')->name('jobs.myjob');
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/jobs/{id}/{job}','JobController@show')->name('show.jobs');

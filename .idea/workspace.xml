@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3646061-ba0e-413b-b01c-5307dc77f7e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/jobs/alljob.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/jobs/applicant.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployerRegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployerRegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Job.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_141327_create_job_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_141327_create_job_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/applicant.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/applicant.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +184,10 @@
       <workItem from="1589978951119" duration="1819000" />
       <workItem from="1589980805748" duration="2261000" />
       <workItem from="1589983096272" duration="1208000" />
-      <workItem from="1589985862459" duration="842000" />
+      <workItem from="1589985862459" duration="968000" />
+      <workItem from="1590056248389" duration="1795000" />
+      <workItem from="1590058113150" duration="1163000" />
+      <workItem from="1590059940499" duration="241000" />
     </task>
     <servers />
   </component>
@@ -205,10 +204,10 @@
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589786220478" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1588828550677" />
-    <state x="464" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589985862216">
+    <state x="464" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590059943485">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="464" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1589985862216" />
+    <state x="464" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1590059943485" />
     <state x="464" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588828551832" />
     <state x="393" y="117" width="749" height="600" key="find.popup" timestamp="1588681429661">
       <screen x="0" y="0" width="1536" height="834" />

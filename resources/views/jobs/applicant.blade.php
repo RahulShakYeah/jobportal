@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @if(empty($applicant))
             @foreach($applicant as $applicant)
                 <div class="col-md-12">
 
@@ -48,6 +49,9 @@
 
                 </div>
             @endforeach
+                @else
+                <p class="alert alert-warning jumbotron"> No any applicants</p>
+            @endif
         </div>
     </div>
 @endsection

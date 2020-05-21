@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class EmployerRegistrationController extends Controller
 {
-    public function employerRegister(){
+    public function employerRegister(Request $request){
+//        $this->validate($request,[
+//            'company_name' => 'required',
+//            'email' => 'required|string|email|unique:users',
+//            'password' => 'required|string|min:8|confirmed'
+//        ]);
+
         $euser =  User::create([
             'email' => request('email'),
             'user_type' => request('user_type'),
@@ -22,6 +28,9 @@ class EmployerRegistrationController extends Controller
             'slug' => \Str::slug(request('cname'))
         ]);
 
-        return redirect()->to('login');
+        $euser->sendEmailVerificationNotification();
+
+        return redirect()->to('login')->with('message','A verification link has been sent to your email. Please
+        follow the link to verify it');
     }
 }
