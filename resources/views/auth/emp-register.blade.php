@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __(' Employer Registration') }}</div>
+            <div class="col-md-12">
+                <div class="card" style="margin-top: 150px;margin-bottom:100px">
+                    <div class="card-header bg-secondary" style="color:white;">{{ __(' Employer Registration') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('emp.register') }}">

@@ -18,7 +18,7 @@ class JobController extends Controller
 
     public function index()
     {
-        $job = Job::orderBy('created_at', 'DESC')->where('status', 1)->take(10)->get();
+        $job = Job::orderBy('created_at', 'DESC')->where('status', 1)->take(5)->get();
         $company = Company::latest()->get()->random(12);
         return view('welcome', compact('job', 'company'));
     }

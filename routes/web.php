@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','JobController@index');
+Route::get('/','JobController@index')->name('job.home');
 Route::get('/jobs/create','JobController@create')->name('job.create');
 Route::post('jobs/create','JobController@store')->name('job.store');
 Route::get('/jobs/{id}/edit','JobController@edit')->name('job.edit');
@@ -22,7 +22,6 @@ Route::get('/jobs/applicant/','JobController@applicant')->name('job.applicant');
 Route::post('/applications/{id}','JobController@apply')->name('job.apply');
 Route::get('/jobs/myjobs','JobController@myJob')->name('jobs.myjob');
 Auth::routes(['verify' => true]);
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/jobs/{id}/{job}','JobController@show')->name('show.jobs');
 Route::get('/jobs/alljobs','JobController@allJobs')->name('all.jobs');
