@@ -7,20 +7,22 @@ use Illuminate\Http\Request;
 use App\Job;
 use App\Company;
 use Auth;
+use App\Category;
 use App\Http\Requests\JobPostRequest;
 
 class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['employer','verified'])->except('index', 'show', 'apply', 'allJobs');
+        $this->middleware(['employer', 'verified'])->except('index', 'show', 'apply', 'allJobs');
     }
 
     public function index()
     {
-        $job = Job::orderBy('created_at', 'DESC')->where('status', 1)->take(5)->get();
+        $job = Job::latest()->where('status', 1)->take(5)->get();
+        $category = Category::with('jobs')->get();
         $company = Company::latest()->get()->random(12);
-        return view('welcome', compact('job', 'company'));
+        return view('welcome', compact('job', 'company','category'));
     }
 
     public function show($id, Job $job)
@@ -38,6 +40,7 @@ class JobController extends Controller
         $user_id = auth()->user()->id;
         $company = Company::where('user_id', $user_id)->first();
         $company_id = $company->id;
+
         Job::create([
             'user_id' => $user_id,
             'company_id' => $company_id,
@@ -50,7 +53,10 @@ class JobController extends Controller
             'address' => request('address'),
             'status' => request('status'),
             'type' => request('type'),
-            'last_date' => request('last_date')
+            'last_date' => $request->get('last_date'),
+            'number_of_vacancy' => $request->get('number_of_vacancy'),
+            'year_of_experience' => request('year_of_experience'),
+            'salary' => request('salary')
         ]);
         return redirect()->back()->with('message', 'Job Posted Successfully');
     }
@@ -70,6 +76,7 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         $job = Job::findOrFail($id);
+        \DB::table('jobs')->where('id',$id)->update(array('slug' => \Str::slug($request->get('title'))));
         $job->update($request->all());
         return redirect()->back()->with('message', 'Job Updated Successfully');
     }
@@ -115,13 +122,11 @@ class JobController extends Controller
         $address = $request->get('address');
 
 
-        if ($keyword||$type||$category_id||$address) {
-            $job = Job::where('title','LIKE','%'.$keyword.'%')
-                    ->orWhere('type',$type)
-
-                ->orwhere('address',$address)
-                ->orWhere('category_id',$category_id)
-
+        if ($keyword || $type || $category_id || $address) {
+            $job = Job::where('title', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('type', $type)
+                ->orwhere('address', $address)
+                ->orWhere('category_id', $category_id)
                 ->paginate(10);
 
 

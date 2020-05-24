@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <form action="{{route('all.jobs')}}" method="GET">
-                <div class="form-inline">
+    <div class="container" >
+        <div class="row" >
+            <form action="{{route('all.jobs')}}" method="GET" >
+                <div class="form-inline" style="margin-top:120px">
                     <div class="form-group">
                         <label for="title">Keyword&nbsp;</label>
                         <input type="text" class="form-control form-control-sm" name="title">
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="form-group">
-                        &nbsp;&nbsp;<button class="btn btn-outline-success" type="submit">Submit</button>
+                        <br><br><button class="btn btn-outline-success pl-2" type="submit">Submit</button>
                     </div>
                 </div>
             </form>
@@ -68,7 +68,7 @@
                 @endforeach
                 </tbody>
             </table>
-        {{$job->appends(Illuminate\Support\Facades\Request::except('page'))->links()}}
+      {{$job->appends(Illuminate\Support\Facades\Request::except('page'))->links()}}
         </div>
     </div>
 

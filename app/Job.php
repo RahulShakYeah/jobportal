@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 class Job extends Model
 {
-    protected $fillable = ['user_id','company_id','title','slug','description','roles','type','category_id','position','address','status','last_date'];
+    protected $fillable = ['user_id','company_id','title','slug','description','roles','type','category_id','position','address','status','last_date','number_of_vacancy','year_of_experience','salary'];
 
     public function getRouteKeyName()
     {

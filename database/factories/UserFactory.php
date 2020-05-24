@@ -31,6 +31,13 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+$factory->define(Category::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'status' => 'active'
+    ];
+});
+
 
 $factory->define(Company::class, function (Faker $faker) {
     return [
@@ -61,7 +68,10 @@ $factory->define(Job::class, function (Faker $faker) {
         'type' => 'fulltime',
         'description' => $faker->paragraph(rand(2,9)),
         'roles' => $faker->text,
-        'last_date' => $faker->dateTime
+        'last_date' => $faker->dateTime,
+        'number_of_vacancy' => rand(1,10),
+        'year_of_experience' => rand(1,10),
+        'salary' => rand(10000,200000)
     ];
 });
 

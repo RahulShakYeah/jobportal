@@ -24,7 +24,8 @@ class CreateJobsTable extends Migration
             $table->text('description');
             $table->text('roles');
             $table->string('type');
-            $table->integer('category_id');
+            $table->foreignId('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('position');
             $table->string('address');
             $table->string('status');

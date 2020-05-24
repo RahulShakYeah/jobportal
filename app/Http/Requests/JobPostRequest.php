@@ -32,7 +32,10 @@ class JobPostRequest extends FormRequest
             'position' => 'required|min:3',
             'address' => 'required',
             'status' => 'required|in:0,1',
-            'last_date' => 'required|date'
+            'last_date' => 'required',
+            'number_of_vacancy' => 'required|numeric',
+            'year_of_experience' => 'required|numeric',
+            'salary' => 'required'
         ];
     }
 }

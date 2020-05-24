@@ -74,6 +74,43 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label for="number_of_vacancy">Number of Vacancy</label>
+                                <input type="number" id="number_of_vacancy" name="number_of_vacancy" class="form-control @error('number_of_vacancy') is-invalid @enderror" value="{{old('number_of_vacancy')}}">
+                                @error('number_of_vacancy')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="year_of_experience">Years of Experience</label>
+                                <input type="number" id="year_of_experience" name="year_of_experience" class="form-control @error('year_of_experience') is-invalid @enderror" value="{{old('year_of_experience')}}">
+                                @error('year_of_experience')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="salary">Salary</label>
+                                <select name="salary" id="salary" class="form-control">
+                                    <option value="negotiable">negotiable</option>
+                                    <option value="10000-20000">10000-20000</option>
+                                    <option value="20000-40000">20000-40000</option>
+                                    <option value="40000-60000">40000-60000</option>
+                                    <option value="60000-100000">60000-100000</option>
+                                    <option value="100000+">100000+</option>
+                                </select>
+                                @error('position')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
                                 <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{old('address')}}">
@@ -109,8 +146,8 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="datepicker">Last Date</label>
-                                <input type="text" id="datepicker" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{old('last_date')}}">
+                                <label for="date">Last Date</label>
+                                <input type="date" id="date" name="last_date" class="form-control @error('last_date') is-invalid @enderror" value="{{old('last_date')}}">
                                 @error('last_date')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>KaamDaar</title>
     @include('../partial.head')
 </head>
 <body>
