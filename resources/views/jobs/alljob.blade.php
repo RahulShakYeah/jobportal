@@ -46,6 +46,7 @@
 
             <table class="table">
                 <tbody>
+                @if(count($job) > 0)
                 @foreach($job as $jobs)
                     <tr>
                         <td>
@@ -66,6 +67,9 @@
                             </a></td>
                     </tr>
                 @endforeach
+                @else
+                    <tr><p class="alert alert-warning">No jobs found</p></tr>
+                @endif
                 </tbody>
             </table>
       {{$job->appends(Illuminate\Support\Facades\Request::except('page'))->links()}}

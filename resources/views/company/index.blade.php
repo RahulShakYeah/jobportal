@@ -20,7 +20,7 @@
                 @if($company->logo == "images/logo/logo.png")
                     <img src="{{asset('images/logo/logo.png')}}" style="border-radius: 50%;max-width: 200px;margin-top:-120px;margin-left:20px" alt="">
                 @else
-                    <img src="{{asset('logo/'.$company->logo)}}" style="border-radius: 50%;max-width: 200px" alt="">
+                    <img src="{{asset('logo/'.$company->logo)}}" style="border-radius: 50%;max-width: 200px;margin-top:-120px;margin-left:20px" alt="">
                 @endif
             </div>
         </div>

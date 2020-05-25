@@ -28,6 +28,7 @@
                                                 class="icon-menu h3"></span></a></div>
 
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                        <li><a href="{{route('company.all')}}">Company</a></li>
                                         @if(!Auth::check())
                                             <li><a href="/register">For Job Seeker</a></li>
                                             <li><a href="{{route('emp.register')}}">For Employer</a></li>

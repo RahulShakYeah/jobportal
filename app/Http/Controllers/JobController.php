@@ -116,6 +116,19 @@ class JobController extends Controller
 
     public function allJobs(Request $request)
     {
+        $search = $request->get('search');
+        $address = $request->get('address');
+
+        if($search && $address){
+            $job = Job::where('title','LIKE','%'.$search.'%')
+                        ->where('status',1)
+                        ->orWhere('position','LIKE'.'%'.$search.'%')
+                        ->orWhere('type','LIKE','%'.$search.'%')
+                        ->orWhere('address','LIKE','%'.$address.'%')
+                        ->paginate(10);
+            return view('jobs.alljob', compact('job'));
+        }
+
         $keyword = $request->get('title');
         $type = $request->get('type');
         $category_id = $request->get('category_id');

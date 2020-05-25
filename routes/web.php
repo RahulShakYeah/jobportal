@@ -58,3 +58,6 @@ Route::get('/download/resume',function(){
 Route::get('/user/get/coverletter/{id}','JobController@downloadCoverLetter')->name('download.covercom');
 Route::get('/user/get/resume/{id}','JobController@downloadResume')->name('download.resumecom');
 
+Route::get('/category/{id}','CategoryController@index')->name('category.index');
+Route::get('/company/allcompanies','CompanyController@company')->name('company.all');
+

@@ -8,13 +8,17 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['employer','verified'])->except('index');
+        $this->middleware(['employer','verified'])->except('index','company');
     }
 
     public function index($id,Company $company){
         return view('company.index',compact('company'));
     }
 
+    public function company(){
+        $company = Company::paginate(12);
+        return view('company.all_company',compact('company'));
+    }
     public function create(){
         return view('company.create');
     }
