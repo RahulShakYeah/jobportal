@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container" >
-        <div class="row" >
-            <form action="{{route('all.jobs')}}" method="GET" >
+    <div class="container">
+        <div class="row">
+            <form action="{{route('all.jobs')}}" method="GET">
                 <div class="form-inline" style="margin-top:120px">
                     <div class="form-group">
                         <label for="title">Keyword&nbsp;</label>
@@ -39,42 +39,69 @@
                     </div>
 
                     <div class="form-group">
-                        <br><br><button class="btn btn-outline-success pl-2" type="submit">Submit</button>
+                        <br><br>
+                        <button class="btn btn-outline-success pl-2" type="submit">Submit</button>
                     </div>
                 </div>
             </form>
+            <div class="col-12">
+                <div class="rounded border jobs-wrap">
+                    @if(count($job) > 0)
+                        @foreach($job as $jobs)
+                            <a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}"
+                               class="job-item d-block d-md-flex align-items-center  border-bottom {{( $jobs->type == "fulltime" ) ? "fulltime" : (( $jobs->type == "parttime" ) ? "partime" : "freelance")}}">
+                                <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                    @if($jobs->company->logo == "images/logo/logo.png" || empty($jobs->company->logo))
+                                        <img src="{{asset('images/logo/logo.png')}}" class="img-fluid mx-auto"
+                                             style="border-radius: 0%" width="80"
+                                             alt="Company Logo">
+                                    @else
+                                        <img src="{{asset('logo/'.$jobs->company->logo)}}" style="border-radius: 0%"
+                                             width="80"
+                                             alt="Company Logo">
+                                    @endif
+                                </div>
+                                <div class="job-details h-100">
+                                    <div class="p-3 align-self-center">
+                                        <h3>{{$jobs->position}}</h3>
+                                        <div class="d-block d-lg-flex">
+                                            <div class="mr-3"><span
+                                                    class="icon-building mr-1"></span>{{$jobs->company->company_name}}
+                                            </div>
+                                            <div class="mr-3"><span
+                                                    class="icon-room mr-1"></span> {{substr($jobs->address,0,20)}}</div>
+                                            <div><span class="icon-money mr-1"></span> {{$jobs->salary}}</div>
+                                            <div>&nbsp;&nbsp;<span class="icon-clock-o mr-1"></span> {{$jobs->created_at->diffForHumans()}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="job-category align-self-center">
+                                    @if($jobs->type == "fulltime")
+                                        <div class="p-3">
+                                            <span class="text-info p-2 rounded border border-info">Full Time</span>
+                                        </div>
+                                    @elseif($jobs->type == "parttime")
+                                        <div class="p-3">
+                                            <span class="text-danger p-2 rounded border border-danger">Part Time</span>
+                                        </div>
+                                    @else
+                                        <div class="p-3">
+                                        </div>
+                                    @endif
+                                </div>
+                            </a>
+                        @endforeach
+                    @else
+                        <tr><p class="alert alert-danger">No Jobs Found</p></tr>
+                    @endif
+                </div>
+            </div>
+            <br><br>
 
-            <table class="table">
-                <tbody>
-                @if(count($job) > 0)
-                @foreach($job as $jobs)
-                    <tr>
-                        <td>
-                            @if($jobs->company->logo == "images/logo/logo.png" || empty($jobs->company->logo))
-                                <img src="{{asset('images/logo/logo.png')}}" style="border-radius: 0%" width="80"
-                                     alt="Company Logo">
-                            @else
-                                <img src="{{asset('logo/'.$jobs->company->logo)}}" style="border-radius: 0%" width="80"
-                                     alt="Company Logo">
-                            @endif
-                        </td>
-                        <td>Position : {{$jobs->position}}<br> <i class="fas fa-clock"></i> {{$jobs->type}} </td>
-                        <td><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Address : {{$jobs->address}}</td>
-                        <td><i class="fa fa-globe"></i>&nbsp;Date : {{$jobs->created_at->diffForHumans()}}</td>
-
-                        <td><a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}">
-                                <button class="btn btn-success btn-sm">Apply</button>
-                            </a></td>
-                    </tr>
-                @endforeach
-                @else
-                    <tr><p class="alert alert-warning">No jobs found</p></tr>
-                @endif
-                </tbody>
-            </table>
-      {{$job->appends(Illuminate\Support\Facades\Request::except('page'))->links()}}
         </div>
+        {{$job->appends(Illuminate\Support\Facades\Request::except('page'))->links()}}
     </div>
+
 
 @endsection
 <style>
@@ -86,3 +113,4 @@
         color: #4183D7;
     }
 </style>
+

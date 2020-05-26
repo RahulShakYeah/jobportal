@@ -28,12 +28,14 @@
                                                 class="icon-menu h3"></span></a></div>
 
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                        <li><a href="{{route('company.all')}}">Company</a></li>
                                         @if(!Auth::check())
                                             <li><a href="/register">For Job Seeker</a></li>
                                             <li><a href="{{route('emp.register')}}">For Employer</a></li>
+                                        @else
+                                            <li><a href="/home">Dashboard</a></li>
                                         @endif
                                         <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{route('company.all')}}">Company</a></li>
                                         <li>
                                             @if(!Auth::check())
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"

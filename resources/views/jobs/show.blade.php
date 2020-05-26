@@ -51,7 +51,9 @@
 
                         </div>
 
-                        <h2>Description</h2>
+                        <h2>Description <a href="#" data-toggle="modal" data-target="#exampleModal1"><i
+                                    class="icon-envelope-o" style="font-size:34px;float: right;color: green"></i></a>
+                        </h2>
                         <p>{{$job->description}}</p><br>
                         <h2>Roles and Responsibilities</h2>
                         <p>{{$job->roles}}</p><br>
@@ -85,7 +87,8 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -103,8 +106,10 @@
                                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                         <div class="col-md-6">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                                   name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            <input id="email" type="email"
+                                                   class="form-control @error('email') is-invalid @enderror"
+                                                   name="email" value="{{ old('email') }}" required autocomplete="email"
+                                                   autofocus>
 
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -120,7 +125,8 @@
 
                                         <div class="col-md-6">
                                             <input id="password" type="password"
-                                                   class="form-control @error('password') is-invalid @enderror" name="password"
+                                                   class="form-control @error('password') is-invalid @enderror"
+                                                   name="password"
                                                    required autocomplete="current-password">
 
                                             @error('password')
@@ -285,3 +291,42 @@
     </div>
 
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Wanna share this job?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Your Name</label>
+                        <input type="text" name="your_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Your Email</label>
+                        <input type="email" name="your_email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Friend's Name</label>
+                        <input type="text" name="friend_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Friend's Email</label>
+                        <input type="email" name="friend_email" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Mail Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

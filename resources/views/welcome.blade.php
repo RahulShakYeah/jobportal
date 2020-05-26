@@ -33,18 +33,21 @@
                                 <div class="p-3 align-self-center">
                                     <h3>{{$jobs->position}}</h3>
                                     <div class="d-block d-lg-flex">
-                                        <div class="mr-3"><span class="icon-building mr-1"></span>{{$jobs->company->company_name}} </div>
-                                        <div class="mr-3"><span class="icon-room mr-1"></span> {{substr($jobs->address,0,20)}}</div>
+                                        <div class="mr-3"><span
+                                                class="icon-building mr-1"></span>{{$jobs->company->company_name}}
+                                        </div>
+                                        <div class="mr-3"><span
+                                                class="icon-room mr-1"></span> {{substr($jobs->address,0,20)}}</div>
                                         <div><span class="icon-money mr-1"></span> {{$jobs->salary}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="job-category align-self-center">
                                 @if($jobs->type == "fulltime")
-                                <div class="p-3">
-                                    <span class="text-info p-2 rounded border border-info">Full Time</span>
-                                </div>
-                                    @elseif($jobs->type == "parttime")
+                                    <div class="p-3">
+                                        <span class="text-info p-2 rounded border border-info">Full Time</span>
+                                    </div>
+                                @elseif($jobs->type == "parttime")
                                     <div class="p-3">
                                         <span class="text-danger p-2 rounded border border-danger">Part Time</span>
                                     </div>
@@ -60,7 +63,8 @@
                 </div>
 
                 <div class="col-md-12 text-center mt-5">
-                    <a href="{{route('all.jobs')}}" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show
+                    <a href="{{route('all.jobs')}}" class="btn btn-primary rounded py-3 px-5"><span
+                            class="icon-plus-circle"></span> Show
                         More Jobs</a>
                 </div>
             </div>
@@ -78,10 +82,14 @@
             <div class="col-md-6 text-center" data-aos="fade">
                 <h1 class="h3 mb-0">Your Dream Job</h1>
                 <p class="h3 text-white mb-5">Is Waiting For You</p>
-                <p><a href="#" class="btn btn-outline-warning py-3 px-4">Find Jobs</a> <a href="#"
-                                                                                          class="btn btn-warning py-3 px-4">Apply
-                        For A Job</a></p>
-
+                <p>
+                    @if(!Auth::check())
+                        <a href="/register" class="btn btn-outline-warning py-3 px-4">Register as Seeker</a>
+                        <a href="{{route('emp.register')}}" class="btn btn-warning py-3 px-4">Register as Employer</a>
+                    @else
+                        <a href="{{route('all.jobs')}}" class="btn btn-outline-warning py-3 px-4">Apply for a job</a>
+                    @endif
+                </p>
             </div>
         </div>
     </div>
