@@ -61,3 +61,5 @@ Route::get('/user/get/resume/{id}','JobController@downloadResume')->name('downlo
 Route::get('/category/{id}','CategoryController@index')->name('category.index');
 Route::get('/company/allcompanies','CompanyController@company')->name('company.all');
 
+Route::post('/job/send','EmailController@send')->name('email');
+

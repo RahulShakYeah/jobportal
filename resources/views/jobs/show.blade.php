@@ -17,6 +17,16 @@
             <div class="row">
 
                 <div class="col-md-12 col-lg-8 mb-5">
+                    @if(Session::has('message'))
+                        <div class="alert alert-success">
+                            {{Session::get('message')}}
+                        </div>
+                    @endif
+                        @if(Session::has('err_message'))
+                            <div class="alert alert-success">
+                                {{Session::get('err_message')}}
+                            </div>
+                        @endif
 
 
                     <div class="p-5 bg-white">
@@ -303,23 +313,38 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="POST">
+            <form action="{{route('email')}}" method="POST">
+                @csrf
                 <div class="modal-body">
+                    <input type="hidden" name="job_id" value="{{$job->id}}">
+                    <input type="hidden" name="job_slug" value="{{$job->slug}}">
                     <div class="form-group">
                         <label for="">Your Name</label>
                         <input type="text" name="your_name" class="form-control" required>
+                        @error('your_name')
+                            <p class="alert-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Your Email</label>
                         <input type="email" name="your_email" class="form-control" required>
+                        @error('your_email')
+                        <p class="alert-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Friend's Name</label>
                         <input type="text" name="friend_name" class="form-control" required>
+                        @error('friend_name')
+                        <p class="alert-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Friend's Email</label>
                         <input type="email" name="friend_email" class="form-control" required>
+                        @error('friend_email')
+                        <p class="alert-danger">{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="modal-footer">
