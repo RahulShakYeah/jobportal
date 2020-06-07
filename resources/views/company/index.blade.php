@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="col-12" ">
+    <div class="col-12">
         <div class="company-profile" >
             @if($company->cover_photo == "images/coverphoto/cover-photo.jpg")
                 <img src="{{asset('images/coverphoto/cover-photo.jpg')}}" style="margin-top: 100px;width:100%" alt="">

@@ -27,7 +27,20 @@ class JobController extends Controller
 
     public function show($id, Job $job)
     {
-        return view('jobs.show', compact('job'));
+        //$data = [];
+        $jobBasedOnCategory = Job::latest()
+                                ->where('category_id',$job->category_id)
+            //use to identify the expired job
+//                                ->whereDate('last_date','>',date('Y-m-d'))
+                                ->where('id','!=',$job->id)
+                                ->where('status',1)
+                                ->limit(4)
+                                ->get();
+        //array_push($data,$jobBasedOnCategory);
+        //$collection = collect($data);
+        //$unique = $collection->unique("id(unique component required)");
+        //$finalData = $unique->values()->all();
+        return view('jobs.show', compact('job','jobBasedOnCategory'));
     }
 
     public function create()

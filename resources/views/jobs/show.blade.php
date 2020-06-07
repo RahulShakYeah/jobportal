@@ -9,9 +9,6 @@
         </div>
     </div>
 
-
-
-
     <div class="site-section bg-light">
         <div class="container">
             <div class="row">
@@ -22,11 +19,11 @@
                             {{Session::get('message')}}
                         </div>
                     @endif
-                        @if(Session::has('err_message'))
-                            <div class="alert alert-success">
-                                {{Session::get('err_message')}}
-                            </div>
-                        @endif
+                    @if(Session::has('err_message'))
+                        <div class="alert alert-success">
+                            {{Session::get('err_message')}}
+                        </div>
+                    @endif
 
 
                     <div class="p-5 bg-white">
@@ -204,8 +201,38 @@
         </div>
     </div>
 
+    <div class="site-section block-15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+                    <h2>Recommended Job</h2>
+                </div>
+            </div>
 
 
+            <div class="nonloop-block-15 owl-carousel">
+
+                @foreach($jobBasedOnCategory as $jobs)
+                    <div class="media-with-text">
+                        <div class="img-border-sm mb-4">
+                            <a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}" class="image-play">
+                                <img src="{{asset('images/coverphoto/jobs.jpg')}}" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                        <h2 class="heading mb-0 h5"><a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}">{{$jobs->title}}</a></h2>
+                        <span class="mb-3 d-block post-date">{{date("F d, Y", strtotime($job->created_at))}}</span>
+                        <p>{{substr($jobs->description,0,50)}}...</p>
+                    </div>
+                @endforeach
+
+
+            </div>
+
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
 
     <div class="site-section">
         <div class="container">
@@ -322,7 +349,7 @@
                         <label for="">Your Name</label>
                         <input type="text" name="your_name" class="form-control" required>
                         @error('your_name')
-                            <p class="alert-danger">{{$message}}</p>
+                        <p class="alert-danger">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="form-group">
