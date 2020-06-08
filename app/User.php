@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Company;
+use App\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,6 +48,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Company::class);
     }
 
+    public function role(){
+        return $this->belongsToMany(Role::class);
+    }
 
 
 }

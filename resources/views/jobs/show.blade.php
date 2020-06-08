@@ -211,20 +211,23 @@
 
 
             <div class="nonloop-block-15 owl-carousel">
-
-                @foreach($jobBasedOnCategory as $jobs)
-                    <div class="media-with-text">
-                        <div class="img-border-sm mb-4">
-                            <a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}" class="image-play">
-                                <img src="{{asset('images/coverphoto/jobs.jpg')}}" alt="" class="img-fluid">
-                            </a>
+                @if(count($jobBasedOnCategory) > 0)
+                    @foreach($jobBasedOnCategory as $jobs)
+                        <div class="media-with-text">
+                            <div class="img-border-sm mb-4">
+                                <a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}" class="image-play">
+                                    <img src="{{asset('images/coverphoto/jobs.jpg')}}" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                            <h2 class="heading mb-0 h5"><a
+                                    href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}">{{$jobs->title}}</a></h2>
+                            <span class="mb-3 d-block post-date">{{date("F d, Y", strtotime($job->created_at))}}</span>
+                            <p>{{substr($jobs->description,0,50)}}...</p>
                         </div>
-                        <h2 class="heading mb-0 h5"><a href="{{route('show.jobs',[$jobs->id,$jobs->slug])}}">{{$jobs->title}}</a></h2>
-                        <span class="mb-3 d-block post-date">{{date("F d, Y", strtotime($job->created_at))}}</span>
-                        <p>{{substr($jobs->description,0,50)}}...</p>
-                    </div>
-                @endforeach
-
+                    @endforeach
+                @else
+                    <p class="alert alert-warning">No recommended jobs available</p>
+                @endif
 
             </div>
 
@@ -233,6 +236,8 @@
             </div>
         </div>
     </div>
+
+
 
     <div class="site-section">
         <div class="container">
