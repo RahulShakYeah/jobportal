@@ -20,6 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3646061-ba0e-413b-b01c-5307dc77f7e9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/adminpartial/adminsidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/adminpartial/admintopbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/adminpartial/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/adminpartial/head.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
     </list>
@@ -207,7 +211,8 @@
       <workItem from="1590505441466" duration="3348000" />
       <workItem from="1590810847178" duration="3159000" />
       <workItem from="1591517823625" duration="3921000" />
-      <workItem from="1591582838997" duration="5018000" />
+      <workItem from="1591582838997" duration="5966000" />
+      <workItem from="1591671423200" duration="1400000" />
     </task>
     <servers />
   </component>
@@ -257,6 +262,11 @@
           <url>file://$PROJECT_DIR$/resources/views/auth/emp-register.blade.php</url>
           <line>3</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/adminpartial/footer.blade.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
